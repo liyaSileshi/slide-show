@@ -9,9 +9,8 @@
         .slides-inner{
           display: flex;
           position: absolute;
-          /* left : -100px; */
-          /* Much more efficient */
           transform: translate3d(0, 0, 0);
+          transition: 1000ms;
         }
         .slide-show{
           overflow: hidden;
@@ -45,10 +44,21 @@
         const slides = document.getElementById(slidesId)
         const slidesInner = slides.querySelector('.slides-inner')
         const images = slidesInner.querySelectorAll('img')
-        console.log(images)
-        console.log(images.length)
+        
+        let index = 0
+        // setInterval(callback, timeMS)
+        setInterval(function(){
+          index += 1
+          if(index === images.length){ 
+            index = 0
+          }
+          // CSS - transform: translate3d(0, 0, 0);
+          slidesInner.style.transform = `translate3d(${index * -1200}px, 0, 0)`
+        }, 2000)
       }
+
       makeSlideshow('slides') 
+
       </script>
     </body> 
-</html>
+</html> 
