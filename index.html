@@ -8,9 +8,14 @@
         /* Slide Show styles */
         .slides-inner{
           display: flex;
+          position: absolute;
+          /* left : -100px; */
+          /* Much more efficient */
+          transform: translate3d(0, 0, 0);
         }
         .slide-show{
           overflow: hidden;
+          position: relative;
         }
 
         /* Developer styles */
@@ -36,7 +41,14 @@
 
       <script>
       // JS
-
+      function makeSlideshow(slidesId){
+        const slides = document.getElementById(slidesId)
+        const slidesInner = slides.querySelector('.slides-inner')
+        const images = slidesInner.querySelectorAll('img')
+        console.log(images)
+        console.log(images.length)
+      }
+      makeSlideshow('slides') 
       </script>
-    </body>
+    </body> 
 </html>
