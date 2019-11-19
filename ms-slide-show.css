@@ -4,8 +4,43 @@
     position: absolute;
     transform: translate3d(0, 0, 0);
     transition: 1000ms;
+    z-index: -1;
   }
   .slide-show{
     overflow: hidden;
     position: relative;
+  }
+  
+  .ms-slide-buttons {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* display: block;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: #fff; */
+  }
+
+  .ms-slide-buttons > * {
+    cursor: pointer;
+  }
+
+  /* .ms-slide-buttons p :hover {
+    color: blue;
+  } */
+
+  .container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .card{
+    /* margin: 2em; */
+    width: 300px;
+    border: 1px solid;
+    margin: 1em;
   }
