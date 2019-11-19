@@ -13,6 +13,7 @@
     
         const slidesWidth = slides.clientWidth
         const slidesHeight = slides.clientHeight
+
         let index = 0
         prev.onclick = function(e){
           console.log('prev')
@@ -37,7 +38,7 @@
             index = 0
           }
           // CSS - transform: translate3d(0, 0, 0);
-          slidesInner.style.transform = `translate3d(${index * -slidesWidth}px, 0, 0)`
+          slidesInner.style.transform = `translate3d(0, ${index * -slidesHeight}px, 0)`
     
         }, delay)
       } //end makeSlideshow

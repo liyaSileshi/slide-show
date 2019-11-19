@@ -1,6 +1,7 @@
 /* Slide Show styles */
 .slides-inner{
     display: flex;
+    flex-direction: column;
     position: absolute;
     transform: translate3d(0, 0, 0);
     transition: 1000ms;
