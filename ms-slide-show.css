@@ -61,3 +61,24 @@
     border: 1px solid;
     margin: 1em;
   }
+
+  .ms-slide-indicators{
+    list-style-type: none;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    bottom: 1em;
+    transform: translate(-50%, 0);
+  }
+
+  .ms-slide-indicators > li{
+    margin-left: 2em;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 50%;
+    border-radius: 50%;
+  }

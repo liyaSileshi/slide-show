@@ -1,6 +1,12 @@
 (function(){
     function makeSlideshow(slides){
         // const slides = document.getElementById(slidesId)
+
+        const slidesInner = slides.querySelector('.slides-inner')
+        const images = slidesInner.querySelectorAll('img')
+
+        // --------------------------------------------------
+        // Setup buttons
         const prev = slides.querySelector('.prev-button')
         const next = slides.querySelector('.next-button')
 
@@ -19,11 +25,34 @@
             nextSlide()
           })
         }
-
+        // ----------------------------------------------
+        // Setup indicators
+        const indicatorContainer = slides.querySelector('.ms-slide-indicators')
+        if (indicatorContainer !== null){
+          // prev.addEventListener('click', function(e){
+          //   e.preventDefault()
+          //   prevSlide()
+          // })
+          console.log(indicatorContainer)
+          for (let i = 0; i < images.length ; i+=1){ 
+            const li = document.createElement('li')
+            indicatorContainer.appendChild(li)
+          }
+          // document.innerHTML = `<li>hi<li>`; 
+        }
         
-        const slidesInner = slides.querySelector('.slides-inner')
-        const images = slidesInner.querySelectorAll('img')
-    
+        
+
+
+
+
+
+
+
+
+
+        // -------------------------------------------------
+        // Setup timer
         const delay = parseInt(slides.dataset.delay) //how long does it stay after transition 
         const transition = parseInt(slides.dataset.transition) //how fast is the transition
         slidesInner.style.transition = `${transition}ms`
@@ -34,6 +63,7 @@
         let index = 0
         setInterval(nextSlide, delay)
         // clearInterval(interval)
+        // --------------------------------------------------
 
         function nextSlide(){
           index += 1
