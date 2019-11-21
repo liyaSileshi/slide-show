@@ -1,7 +1,7 @@
 /* Slide Show styles */
 .slides-inner{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     position: absolute;
     transform: translate3d(0, 0, 0);
     transition: 1000ms;
@@ -12,11 +12,11 @@
     position: relative;
   }
   
-  .ms-slide-buttons {
+   /* .ms-slide-buttons {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
 
     /* display: block;
     width: 40px;
@@ -24,16 +24,32 @@
     top: 50%;
     transform: translate(0, -50%);
     background-color: #fff; */
-  }
+  /* }  */
 
-  .ms-slide-buttons > * {
+   /* .ms-slide-buttons > * {
     cursor: pointer;
-  }
+  } */
 
+  .prev-button, .next-button{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 50%;
+  }
   /* .ms-slide-buttons p :hover {
     color: blue;
   } */
-
+.next-button{
+  right:1em;
+}
+.prev-button{
+  left: 1em;
+}
   .container{
     display: flex;
     justify-content: center;

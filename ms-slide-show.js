@@ -1,9 +1,26 @@
 (function(){
     function makeSlideshow(slides){
         // const slides = document.getElementById(slidesId)
-        const prev = document.getElementsByClassName('prev-button')
-        console.log(prev)
-        const next = document.getElementsByClassName('next-button')
+        const prev = slides.querySelector('.prev-button')
+        const next = slides.querySelector('.next-button')
+
+        if (prev !== null){
+          prev.addEventListener('click', function(e){
+            e.preventDefault()
+            prevSlide()
+          })
+        }
+
+        if (next!== null){
+          next.addEventListener('click', function(e){
+            e.preventDefault()
+            //clear the interval
+            //add a new interval
+            nextSlide()
+          })
+        }
+
+        
         const slidesInner = slides.querySelector('.slides-inner')
         const images = slidesInner.querySelectorAll('img')
     
@@ -15,32 +32,30 @@
         const slidesHeight = slides.clientHeight
 
         let index = 0
-        prev.onclick = function(e){
-          console.log('prev')
-          if (index == 0) {
-            index = images.length - 1
-          } else {
-            index -= 1
-          }
-          
-          slidesInner.style.transform = `translate3d(${index * -slidesWidth}px, 0, 0)`
-        }
-        next.onclick = function(e){
-          index += 1
-          slidesInner.style.transform = `translate3d(${index * -slidesWidth}px, 0, 0)`
-        }
-        // setInterval(callback, timeMS)
-        setInterval(function(){
-          
-          
+        setInterval(nextSlide, delay)
+        // clearInterval(interval)
+
+        function nextSlide(){
           index += 1
           if(index === images.length){ 
             index = 0
           }
+          showSlide()
+        }
+        
+        function prevSlide(){
+          index -= 1
+          if(index < 0){ 
+            index = images.length - 1
+          }
+          showSlide()
+        }
+
+        function showSlide(){
           // CSS - transform: translate3d(0, 0, 0);
-          slidesInner.style.transform = `translate3d(0, ${index * -slidesHeight}px, 0)`
-    
-        }, delay)
+          slidesInner.style.transform = `translate3d(${index * -slidesWidth}px,0, 0)`
+        }
+
       } //end makeSlideshow
       const slideshows = document.querySelectorAll('.ms-slide-show')
       for (let i = 0; i < slideshows.length ; i+=1){
