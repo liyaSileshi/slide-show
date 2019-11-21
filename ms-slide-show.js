@@ -27,30 +27,19 @@
         }
         // ----------------------------------------------
         // Setup indicators
+
         const indicatorContainer = slides.querySelector('.ms-slide-indicators')
+        const indicators = []
         if (indicatorContainer !== null){
-          // prev.addEventListener('click', function(e){
-          //   e.preventDefault()
-          //   prevSlide()
-          // })
-          console.log(indicatorContainer)
           for (let i = 0; i < images.length ; i+=1){ 
             const li = document.createElement('li')
             indicatorContainer.appendChild(li)
+            indicators.push(li)
           }
-          // document.innerHTML = `<li>hi<li>`; 
+          indicators[0].style.opacity = '100%' //make the first list indicator opaque
         }
         
-        
-
-
-
-
-
-
-
-
-
+      
         // -------------------------------------------------
         // Setup timer
         const delay = parseInt(slides.dataset.delay) //how long does it stay after transition 
@@ -84,6 +73,16 @@
         function showSlide(){
           // CSS - transform: translate3d(0, 0, 0);
           slidesInner.style.transform = `translate3d(${index * -slidesWidth}px,0, 0)`
+          indicators.forEach(function(el, i){
+            // el.style.opacity = '100%'
+            // i = 0
+            if(i === index){
+              // highlight
+              el.style.opacity = '100%'
+            } else{
+              el.style.opacity = '50%'
+            }
+          })
         }
 
       } //end makeSlideshow
